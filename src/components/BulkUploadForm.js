@@ -13,7 +13,7 @@ const BulkUploadForm = ({ open, handleClose }) => {
             if (!Array.isArray(parsedData)) {
                 throw new Error('Input must be a JSON array.');
             }
-            await axios.post('http://localhost:8080/api/freelancers/bulk', parsedData, {
+            await axios.post('/api/freelancers/bulk', parsedData, {
                 headers: { 'Content-Type': 'application/json' }
             });
             handleClose();

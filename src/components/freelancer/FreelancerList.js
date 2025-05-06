@@ -38,9 +38,9 @@ const FreelancerList = () => {
                 const params = {};
                 if (filters.category.trim()) params.category = filters.category.trim();
                 if (filters.skillName.trim()) params.skillName = filters.skillName.trim();
-                response = await axios.get('http://localhost:8080/api/freelancers', { params });
+                response = await axios.get('/api/freelancers', { params });
             } else {
-                response = await axios.get('http://localhost:8080/api/freelancers');
+                response = await axios.get('/api/freelancers');
             }
             console.log('Freelancers response:', response.data);
             setFreelancers(response.data);
@@ -71,7 +71,7 @@ const FreelancerList = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/freelancers/${id}`);
+            await axios.delete(`/api/freelancers/${id}`);
             fetchFreelancers();
         } catch (error) {
             console.error('Error deleting freelancer:', error);

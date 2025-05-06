@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, FormControl } from '@mui/material';
+import { TextField, Button, Grid } from '@mui/material';
 
 const FilterForm = ({ onApply }) => {
     const [category, setCategory] = useState('');

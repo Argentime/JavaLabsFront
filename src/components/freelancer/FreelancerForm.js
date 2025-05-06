@@ -36,11 +36,11 @@ const FreelancerForm = ({ open, handleClose, freelancer }) => {
                 hourlyRate: parseFloat(formData.hourlyRate)
             };
             if (freelancer) {
-                await axios.put(`http://localhost:8080/api/freelancers/${freelancer.id}`, data, {
+                await axios.put(`/api/freelancers/${freelancer.id}`, data, {
                     headers: { 'Content-Type': 'application/json' }
                 });
             } else {
-                await axios.post('http://localhost:8080/api/freelancers', data, {
+                await axios.post('/api/freelancers', data, {
                     headers: { 'Content-Type': 'application/json' }
                 });
             }

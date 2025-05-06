@@ -38,7 +38,7 @@ const FreelancerDetails = ({ open, handleClose, freelancer }) => {
 
     const handleAddOrder = async (description, price) => {
         try {
-            const response = await axios.post(`http://localhost:8080/api/freelancers/${freelancer.id}/orders`, null, {
+            const response = await axios.post(`/api/freelancers/${freelancer.id}/orders`, null, {
                 params: { description, price }
             });
             setOrders(response.data.orders || []);
@@ -51,7 +51,7 @@ const FreelancerDetails = ({ open, handleClose, freelancer }) => {
 
     const handleAddSkill = async (skillName) => {
         try {
-            const response = await axios.post(`http://localhost:8080/api/freelancers/${freelancer.id}/skills`, null, {
+            const response = await axios.post(`/api/freelancers/${freelancer.id}/skills`, null, {
                 params: { skillName }
             });
             setSkills(response.data.skills || []);
@@ -64,7 +64,7 @@ const FreelancerDetails = ({ open, handleClose, freelancer }) => {
 
     const handleDeleteOrder = async (orderId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/freelancers/${freelancer.id}/orders/${orderId}`);
+            await axios.delete(`/api/freelancers/${freelancer.id}/orders/${orderId}`);
             setOrders(orders.filter((order) => order.id !== orderId));
             setError(null);
         } catch (error) {
@@ -75,7 +75,7 @@ const FreelancerDetails = ({ open, handleClose, freelancer }) => {
 
     const handleDeleteSkill = async (skillId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/freelancers/${freelancer.id}/skills/${skillId}`);
+            await axios.delete(`/api/freelancers/${freelancer.id}/skills/${skillId}`);
             setSkills(skills.filter((skill) => skill.id !== skillId));
             setError(null);
         } catch (error) {

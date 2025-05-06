@@ -24,10 +24,10 @@ export const AuthProvider = ({ children }) => {
             let response;
             if (asGuest) {
                 // Вход как гость (администратор)
-                response = await axios.post('http://localhost:8080/api/auth/login', { username: 'admin', password: 'admin' });
+                response = await axios.post('/api/auth/login', { username: 'admin', password: 'admin' });
                 setRole('ADMIN');
             } else {
-                response = await axios.post('http://localhost:8080/api/auth/login', { username, password });
+                response = await axios.post('/api/auth/login', { username, password });
                 setRole('FREELANCER');
             }
             const { token } = response.data;
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (username, password, role) => {
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/register', { username, password, role });
+            const response = await axios.post('/api/auth/register', { username, password, role });
             const { token } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('role', role);
