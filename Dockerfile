@@ -15,3 +15,4 @@ EXPOSE 80
 CMD ["sh", "-c", "envsubst '$backend_url' < /etc/nginx/conf.d/nginx.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
 
 
+
